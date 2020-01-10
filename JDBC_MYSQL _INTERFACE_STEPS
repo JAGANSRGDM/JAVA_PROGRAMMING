@@ -1,0 +1,53 @@
+﻿/*******************************************************************************************************/
+7 steps to create JDBC application.
+
+1=>import PACKAGE ----->import java.sql.*;
+2=>a)Load the driver-------->com.mysql.jdbc.driver
+   b)Register the driver---->Class.forName("com.mysql.jdbc.driver")
+3=>Establish the connection--->Connection
+4=>Create the statement------>3 types 1.Statement,
+				      2.PreparedStatement,			
+				      3.CallableStatement
+5=>Execute the query
+6=>Process the result---->ResultSet
+7=>close
+
+EXample:
+import java.sql.*;
+class sql_dao{
+public static void main(String args[])
+{
+	Class.forName("com.mysql.jdbc.driver");
+	Connection con=DriverManager.getConnection("URL","user_name","Password");
+			URL formate: jdbc:mysql://localhost:3306/Database_name
+	Statement smt=con.CreateStatement();
+	ResultSet rs=st.excuteQuery("Pass SQL statement to selec");
+		for DQL use Query,
+		for DML use Update	// return type is int no. of rows affected
+		for DDL use create.
+	rs.next();		//To shift the pointer location
+	System.out.println(rs.getInt(1)+" "+rs.getString(2));
+
+	//To print the overall data use:
+	while(rs.next()){
+		System.out.println(rs.getInt(1)+" "+rs.getString(2));
+		}
+	smt.close;
+	con.close;
+}
+}
+
+*******************************************************************************************************************/
+Requirments to design user management system database by using eclipse ide:
+
+We will develop below simple basic features in our User Management web application:
+Create A User		//add data in database.
+	    EX:ID,NAME,EMAIL,COLLEGE,COUNTRY
+Update A User		//update the inserted information in database.
+
+Delete A User		//delete the particular data.
+
+Retrieve A User		//stored the data.
+
+List Of All Users	//Show the list of users.
+	EX:ID,NAME,EMAIL,COLLEGE,COUNTRY
